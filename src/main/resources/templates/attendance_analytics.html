@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>All Attendance Taken Today </title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <style>
+        .table thead {
+            background-color: #343a40;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>All Leave Applications</h1>
+    <a class="nav-link" th:href="@{/adminDashboard}"> Go back to dashboard</a>
+    <div id="day-view" class="view-table">
+        <h3>Daily Attendance</h3>
+
+        <div th:each="entry : ${attendanceByDate}">
+            <h4 th:text="${#temporals.format(entry.key, 'EEEE, d MMMM yyyy')}"></h4>
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th>Employee</th>
+                    <th>Date and Time</th>
+
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="attendance : ${entry.value}">
+                    <td th:text="${attendance.employee?.firstName} + ' ' + ${attendance.employee?.lastName}"></td>
+                    <td th:text="${attendance.dateTime}"></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            height: 100vh;
+        }
+
+        .container {
+            display: flex;
+            width: 100%;
+        }
+
+        .sidebar {
+            width: 250px;
+            background-color: #2c3e50;
+            color: white;
+            padding: 20px;
+            box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+        }
+
+        .sidebar-header {
+            margin-bottom: 30px;
+        }
+
+        .sidebar-menu {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .sidebar-menu li {
+            margin-top: 40px;
+            margin-bottom: 20px;
+        }
+
+        .sidebar-menu li a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+        }
+
+        .sidebar-menu li a:hover {
+            text-decoration: underline;
+        }
+
+        .main-content {
+            flex: 1;
+            padding: 20px;
+        }
+
+        .content-header {
+            margin-bottom: 30px;
+        }
+
+        .content-body {
+            font-size: 18px;
+        }
+
+        .dynamic-image {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+        }
+
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="sidebar">
+        <div class="sidebar-header">
+
+        </div>
+        <ul class="sidebar-menu">
+            <li><a href="#" th:href="@{/profile}">View Profile</a></li>
+            <li><a href="#" th:href="@{/attendance/mark}">Mark Attendance</a></li>
+            <li><a href="#" th:href="@{/leave/apply}">Apply for Leave</a></li>
+            <li><a href="#" th:href="@{/leave/list}">View Your Leave</a></li>
+            <li><a href="#" th:href="@{/logout}"> Log out</a></li>
+        </ul>
+    </div>
+    <div class="main-content">
+        <div class="content-header">
+            <h1>Dashboard</h1>
+        </div>
+        <div class="content-body">
+            <p th:text=" ' Welcome ' + ${employee.firstName} + ' ' + ${employee.lastName}"></p>
+            <p>Select an option from the sidebar to proceed.</p>
+<!--            <img th:src="@{${imageUrl}}" alt="Dynamic Image" class="dynamic-image">-->
+        </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet"
+          href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+          crossorigin="anonymous"
+    >
+    <style>
+        body {
+            display: flex;
+            height: 100vh;
+        }
+        .sidebar {
+            width: 250px;
+            background-color: #343a40;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            padding-top: 20px;
+        }
+        .sidebar a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 15px;
+            display: block;
+            font-size: 18px;
+        }
+        .sidebar a:hover {
+            background-color: #495057;
+            text-decoration: none;
+        }
+        .main-content {
+            flex: 1;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="sidebar">
+    <h2 class="text-center">Welcome to the Admin Panel</h2>
+    <a th:href="@{/leave/lists}">View All Leaves</a>
+    <a th:href="@{/attendance/list}">View All Attendance By The Day</a>
+    <a th:href="@{/employees}">View All Employees</a>
+    <a th:href="@{/employees/new}">Create Employee</a>
+    <a th:href="@{/logout}">Log Out</a>
+</div>
+<div class="main-content">
+    <div class="content-header">
+        <h1>Dashboard</h1>
+    </div>
+    <div class="content-body">
+        <p>Select an option from the sidebar to proceed.</p>
+<!--        <img th:src="@{${imageUrl}}" alt="Dynamic Image" class="dynamic-image">-->
+    </div>
+</div>
+
+</body>
+</html>
